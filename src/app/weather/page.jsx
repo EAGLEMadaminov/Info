@@ -79,7 +79,7 @@ function Weather() {
         </div>
       </div>
       {loading ? (
-        <h1>yo&aposq malumot</h1>
+        <h1 className="z-[3]">yo&aposq malumot</h1>
       ) : (
         <div className="sticky z-[2] flex w-[250px] md:w-[700px] lg:w-full flex-col justify-center items-center mx-auto text-center">
           {weatherInfo.map((item, index) => {
