@@ -85,7 +85,7 @@ export default function Home() {
 
   const clock = `${hour}:${min}`;
   return (
-    <div className="bg-white relative h-[100vh]">
+    <div className="bg-white relative min-h-[100vh]">
       <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/40 z-[1] "></div>
 
       <Image
