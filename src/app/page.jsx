@@ -33,7 +33,7 @@ export default function Home() {
     const fetchWeather = async () => {
       setLoading(true);
       const response = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=4ead869993844e61a82182622231308&q=toshkent&days=0&aqi=no&alerts=no`,
+        `https://api.weatherapi.com/v1/forecast.json?key=4ead869993844e61a82182622231308&q=toshkent&days=0&aqi=no&alerts=no`,
         {
           mathod: "GET",
           headers: {
