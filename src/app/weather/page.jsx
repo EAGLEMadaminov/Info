@@ -78,75 +78,72 @@ function Weather() {
           </div>
         </div>
       </div>
-      {loading ? (
-        ""
-      ) : (
-        <div className="sticky z[2] flex w-[250px] md:w-[700px] lg:w-full flex-col justify-center items-center mx-auto text-center">
-          {weatherInfo.map((item, index) => {
-            return (
-              <div key={index}>
-                <div className="flex items-center justify-around">
-                  <h1 className="text-[30px]">{item?.location?.name}</h1>
-                  <Link href="/" className="ml-5 button-29">
-                    Orqaga qaytish
-                  </Link>
-                </div>
-                <div className="flex mx-auto w-[250px] flex-wrap justify-center md:w-[600px] sm:justify-between items-center">
-                  <p className="text-black text-4xl">
-                    Now {item?.current?.temp_c?.toFixed(0)} &#176;C
+
+      <div className="sticky z[2] flex w-[250px] md:w-[700px] lg:w-full flex-col justify-center items-center mx-auto text-center">
+        {weatherInfo.map((item, index) => {
+          return (
+            <div key={index}>
+              <div className="flex items-center justify-around">
+                <h1 className="text-[30px]">{item?.location?.name}</h1>
+                <Link href="/" className="ml-5 button-29">
+                  Orqaga qaytish
+                </Link>
+              </div>
+              <div className="flex mx-auto w-[250px] flex-wrap justify-center md:w-[600px] sm:justify-between items-center">
+                <p className="text-black text-4xl">
+                  Now {item?.current?.temp_c?.toFixed(0)} &#176;C
+                </p>
+                <p className="text-4xl">{item?.current?.condition?.text}</p>
+                <Image
+                  src={`https:${item?.current?.condition?.icon}`}
+                  width={100}
+                  height={50}
+                  alt="current-text"
+                ></Image>
+              </div>
+              <div className="flex text-black  w-[250px] md:w-[600px] lg:w-[500px] justify-between text-2xl mx-auto">
+                <div className="flex justify-center w-full ">
+                  <p className="mx-3 text-center text-[25px]">
+                    {item?.forecast.forecastday[Number(days) - 1]?.date}
                   </p>
-                  <p className="text-4xl">{item?.current?.condition?.text}</p>
-                  <Image
-                    src={`https:${item?.current?.condition?.icon}`}
-                    width={100}
-                    height={50}
-                    alt="current-text"
-                  ></Image>
                 </div>
-                <div className="flex text-black  w-[250px] md:w-[600px] lg:w-[500px] justify-between text-2xl mx-auto">
-                  <div className="flex justify-center w-full ">
-                    <p className="mx-3 text-center text-[25px]">
-                      {item?.forecast.forecastday[Number(days) - 1]?.date}
-                    </p>
-                  </div>
+              </div>
+            </div>
+          );
+        })}
+        <div className="flex w-[270px] sm:w-[320px] md:w-[700px] lg:w-[1100px] mx-auto justify-center flex-wrap">
+          {hourlyInfo?.hour?.map((item, inx) => {
+            return (
+              <div
+                className="text-white w-[250px] m-5  p-5 text-center bg-black/50"
+                key={inx}
+              >
+                <h3>{item.time} </h3>
+                <Image
+                  alt={item?.condition?.text}
+                  src={
+                    item?.condition?.icon
+                      ? `https:${item?.condition?.icon}`
+                      : ""
+                  }
+                  width={100}
+                  height={50}
+                  className="mx-auto "
+                ></Image>
+                <div className="flex w-20 mx-auto justify-between">
+                  <p className="capitalize mx-2">{item.condition?.text}</p>
+                  <p>{item.temp_c?.toFixed(0)}&#176;C</p>
                 </div>
+                <div className="flex justify-between">
+                  <p>Hum: {item.humidity}%</p>
+                  <p>Wind {item.wind_mph?.toFixed(0)} MPH</p>
+                </div>
+                <p>Feels Like {item.feelslike_c?.toFixed(0)}&#176;C</p>
               </div>
             );
           })}
-          <div className="flex w-[270px] sm:w-[320px] md:w-[700px] lg:w-[1100px] mx-auto justify-center flex-wrap">
-            {hourlyInfo?.hour?.map((item, inx) => {
-              return (
-                <div
-                  className="text-white w-[250px] m-5  p-5 text-center bg-black/50"
-                  key={inx}
-                >
-                  <h3>{item.time} </h3>
-                  <Image
-                    alt={item?.condition?.text}
-                    src={
-                      item?.condition?.icon
-                        ? `https:${item?.condition?.icon}`
-                        : ""
-                    }
-                    width={100}
-                    height={50}
-                    className="mx-auto "
-                  ></Image>
-                  <div className="flex w-20 mx-auto justify-between">
-                    <p className="capitalize mx-2">{item.condition?.text}</p>
-                    <p>{item.temp_c?.toFixed(0)}&#176;C</p>
-                  </div>
-                  <div className="flex justify-between">
-                    <p>Hum: {item.humidity}%</p>
-                    <p>Wind {item.wind_mph?.toFixed(0)} MPH</p>
-                  </div>
-                  <p>Feels Like {item.feelslike_c?.toFixed(0)}&#176;C</p>
-                </div>
-              );
-            })}
-          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
