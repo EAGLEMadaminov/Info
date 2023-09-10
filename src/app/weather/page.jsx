@@ -51,7 +51,7 @@ function Weather() {
               name="city"
               placeholder="Shahar nomini kiriting "
               onChange={(e) => setInputValue(e.target.value)}
-              className="p-2 w-[200px] sm:w-[300px] outline-none"
+              className="p-2 w-[200px] sm:w-[300px] outline-none dark:text-black"
             />
             <button
               type="button"
@@ -79,7 +79,7 @@ function Weather() {
         </div>
       </div>
       {loading ? (
-        ""
+        "yo'q malumot"
       ) : (
         <div className="sticky z[2] flex w-[250px] md:w-[700px] lg:w-full flex-col justify-center items-center mx-auto text-center">
           {weatherInfo.map((item, index) => {
