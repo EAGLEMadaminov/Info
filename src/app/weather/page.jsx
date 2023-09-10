@@ -37,8 +37,9 @@ function Weather() {
       <Image
         src="https://www.wta.org/site_images/trip-reports/2017/tripreport.image.2017-07-24.5608363540/@@download/image/20369107_1363769333742070_3528939705401641346_o.jpg"
         alt="weather image"
-        layout="fill"
-        className="w-full absolute h-full object-cover "
+        width={100}
+        height={100}
+        className="w-full absolute h-full object-cover  "
       ></Image>
       <div className="pt-4 relative z-[5] flex w-[300px] md:w-[800px] lg:w-[1000px] mx-auto flex-col justify-center items-center">
         <h1 className="text-[25px] font-[700] text-center ">
@@ -101,6 +102,7 @@ function Weather() {
                     width={100}
                     height={50}
                     alt="current-text"
+                    className="w-auto h-auto"
                   ></Image>
                 </div>
                 <div className="flex text-black  w-[250px] md:w-[600px] lg:w-[500px] justify-between text-2xl mx-auto">
@@ -130,7 +132,7 @@ function Weather() {
                     }
                     width={100}
                     height={50}
-                    className="mx-auto "
+                    className="mx-auto  w-auto h-auto"
                   ></Image>
                   <div className="flex w-20 mx-auto justify-between">
                     <p className="capitalize mx-2">{item.condition?.text}</p>
