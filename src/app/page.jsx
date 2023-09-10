@@ -92,7 +92,6 @@ export default function Home() {
         src="https://images.unsplash.com/photo-1601134467661-3d775b999c8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2575&q=80"
         alt="full image"
         layout="fill"
-
         className="object-cover w-auto  h-auto"
       />
       <div className="flex  text-center relative z-[2]">
@@ -100,77 +99,74 @@ export default function Home() {
           {dateFormat} sana uchun ma&apos;lumotlar
         </h1>
       </div>
-      {loading ? (
-        "Ma'lumot yuklanyabdi"
-      ) : (
-        <div className="z-[2] relative flex mt-20 justify-center flex-wrap w-full md:w-[1100px] mx-auto ">
-          {/* money   */}
-          <div className="border w-[300px]  text-[18px] text-center flex flex-col justify-around rounded-[18px] mx-5 border-[rgba(0,0,0,0.6)] bg-[rgba(0,0,0,0.6)] text-white p-5">
-            <p className="text-[20px] uppercase">Bugungi valyuta kursi</p>
-            <div>
-              <p className="mb-3 ">{money.CcyNm_UZ} </p>
-              <p className="">1$ {money.Rate} sum</p>
-            </div>
-            <Link
-              href="/money"
-              className="border p-2 rounded-[8px] mt-14 button-17"
-            >
-              Ko&apos;proq ma&apos;lumot olish
-            </Link>
+
+      <div className="z-[2] relative flex mt-20 justify-center flex-wrap w-full md:w-[1100px] mx-auto ">
+        {/* money   */}
+        <div className="border w-[300px]  text-[18px] text-center flex flex-col justify-around rounded-[18px] mx-5 border-[rgba(0,0,0,0.6)] bg-[rgba(0,0,0,0.6)] text-white p-5">
+          <p className="text-[20px] uppercase">Bugungi valyuta kursi</p>
+          <div>
+            <p className="mb-3 ">{money.CcyNm_UZ} </p>
+            <p className="">1$ {money.Rate} sum</p>
           </div>
-          {/* weather    */}
-          <div className="border my-4 sm:my-0 w-[300px] text-[18px] flex flex-col justify-between text-center rounded-[18px]  border-[rgba(0,0,0,0.6)] mx-5 bg-[rgba(0,0,0,0.6)] text-white p-5">
-            <p className="uppercase text-[20px] ">Ob-xavo</p>
-            <div>
-              <p className="mb-3">Toshkent</p>
-              <p className="">Now {weather?.feelslike_c?.toFixed(0)} &#176;C</p>
-              <Image
-                src={
-                  weather?.condition?.icon
-                    ? `https:${weather?.condition?.icon}`
-                    : ""
-                }
-                width={100}
-                height={100}
-                className="mx-auto"
-                alt={`${weather?.condition?.text} icon`}
-              />
-            </div>
-            <Link href="/weather" className="button-17">
-              {" "}
-              Ko&apos;proq ma&apos;lumot olish
-            </Link>
-          </div>
-          {/* // football */}
-          <div className="border  w-[300px] flex flex-col text-[18px]  border-[rgba(0,0,0,0.6)] rounded-[18px]  mx-5 bg-[rgba(0,0,0,0.6)] text-white p-5">
-            <p className="text-[20px] uppercase mb-3 text-center">Football</p>
-            {!hasFotball ? (
-              <h3 className="text-center">Bugun futbol yo&apos;q</h3>
-            ) : (
-              <div>
-                <h2 className=" ">
-                  <span className="text-blue-600">Liga:</span>{" "}
-                  {football?.tournament}
-                </h2>
-                <p className="my-3">
-                  <span className="text-blue-600">Jamoalar:</span>{" "}
-                  {football?.match}
-                </p>
-                <p>
-                  <span className="text-blue-600"> Stadion:</span>{" "}
-                  {football?.stadium}
-                </p>
-                <p className="my-3 text-center">
-                  <span className="text-blue-600">Vaqt</span> {clock}
-                </p>
-                <Link className=" button-17" href="/sports">
-                  Ko&apos;proq ma&apos;lumot olish
-                </Link>
-              </div>
-            )}
-          </div>
+          <Link
+            href="/money"
+            className="border p-2 rounded-[8px] mt-14 button-17"
+          >
+            Ko&apos;proq ma&apos;lumot olish
+          </Link>
         </div>
-      )}
+        {/* weather    */}
+        <div className="border my-4 sm:my-0 w-[300px] text-[18px] flex flex-col justify-between text-center rounded-[18px]  border-[rgba(0,0,0,0.6)] mx-5 bg-[rgba(0,0,0,0.6)] text-white p-5">
+          <p className="uppercase text-[20px] ">Ob-xavo</p>
+          <div>
+            <p className="mb-3">Toshkent</p>
+            <p className="">Now {weather?.feelslike_c?.toFixed(0)} &#176;C</p>
+            <Image
+              src={
+                weather?.condition?.icon
+                  ? `https:${weather?.condition?.icon}`
+                  : ""
+              }
+              width={100}
+              height={100}
+              className="mx-auto"
+              alt={`${weather?.condition?.text} icon`}
+            />
+          </div>
+          <Link href="/weather" className="button-17">
+            {" "}
+            Ko&apos;proq ma&apos;lumot olish
+          </Link>
+        </div>
+        {/* // football */}
+        <div className="border  w-[300px] flex flex-col text-[18px]  border-[rgba(0,0,0,0.6)] rounded-[18px]  mx-5 bg-[rgba(0,0,0,0.6)] text-white p-5">
+          <p className="text-[20px] uppercase mb-3 text-center">Football</p>
+          {!hasFotball ? (
+            <h3 className="text-center">Bugun futbol yo&apos;q</h3>
+          ) : (
+            <div>
+              <h2 className=" ">
+                <span className="text-blue-600">Liga:</span>{" "}
+                {football?.tournament}
+              </h2>
+              <p className="my-3">
+                <span className="text-blue-600">Jamoalar:</span>{" "}
+                {football?.match}
+              </p>
+              <p>
+                <span className="text-blue-600"> Stadion:</span>{" "}
+                {football?.stadium}
+              </p>
+              <p className="my-3 text-center">
+                <span className="text-blue-600">Vaqt</span> {clock}
+              </p>
+              <Link className=" button-17" href="/sports">
+                Ko&apos;proq ma&apos;lumot olish
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
