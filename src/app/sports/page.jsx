@@ -24,7 +24,7 @@ function Sports() {
     fetchFunction();
   }, []);
   return (
-    <div className="bg-white h-[110vh] py-10">
+    <div className="bg-white h-[110vh] py-10 w-full">
       <div className="text-center flex w-[1000px] justify-around mx-auto">
         <h1 className="text-black text-[30px] font-[700]">
           Bugungi Futboll matchlari
