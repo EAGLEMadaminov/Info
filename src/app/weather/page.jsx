@@ -16,7 +16,7 @@ function Weather() {
   useEffect(() => {
     const fetchFunction = async () => {
       const response = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=0aa651779a8042e79f842251230205&q=${city}&days=${days}&aqi=no&alerts=no`,
+        `https://api.weatherapi.com/v1/forecast.json?key=0aa651779a8042e79f842251230205&q=${city}&days=${days}&aqi=no&alerts=no`,
         {
           method: "GET",
           headers: {
